@@ -1,6 +1,37 @@
 var Module = null;
 var Theme = {};
 
+function getJSONValue() {
+    var file = document.getElementById("importButton").files[0];
+    var textType = /json.*/;
+
+    /*var reader = new FileReader();
+        
+    reader.onload = function(e) {
+        var content = reader.result;
+        console.log(content)
+        document.getElementById("theme").value = content;
+    }
+    
+    reader.readAsText(file); */
+
+    console.log(file.type)
+    
+    if (file.type.match(textType)) {
+        var reader = new FileReader();
+        
+        reader.onload = function(e) {
+            var content = reader.result;
+            console.log(content)
+            document.getElementById("theme").value = content;
+        }
+        
+        reader.readAsText(file);    
+    } else {
+        setStatus("File not supported!")
+    }
+}
+
 function traverseColors(root, data) {
     for (i in data) {
         let v = data[i];
@@ -47,6 +78,8 @@ function loadTheme() {
 }
 
 function run() {
+    setStatus("Running...")
+
     if (Module != null) {
         Module._IonSimulatorEventsPushEvent(217);
         delete Module;
@@ -64,7 +97,7 @@ function run() {
                 if (name in Theme) {
                     return Theme[name];
                 } else {
-                    setStatus("Unknown color " + name + ", aborting!");
+                    setStatus("Unknown color \"" + name +"\"");
                     Module._IonSimulatorEventsPushEvent(217);
                     delete Module;
                     Module = null;
