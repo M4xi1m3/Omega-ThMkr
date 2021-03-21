@@ -12,6 +12,11 @@ This is an adapted version of [this](https://github.com/Omega-Numworks/Omega/pul
 
 This means the icons aren't currently editable.
 
+## How the f* do I use this thing ?
+On the left side of the interface, you will be able to find all the color related code from the OS, and you will then be able to change
+the hexadecimal values in order to change the color of the different elements of the interface. If you want to see how the colors fits in, you just have to press the "play" button to launch the simulator.
+the "file" icon next to the play button will allow you to save your work.
+
 ## License
 
 epsilon.js provided under CC-BY-SA-NC.
